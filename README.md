@@ -12,13 +12,20 @@
 - `notes/03-lda.md` — LDA：线性判别分析
 - `notes/04-preprocessing.md` — 光谱预处理：SNV、MSC、一阶导数
 - `notes/05-validation.md` — 模型验证：交叉验证与常见坑
+- `notes/06-pca-and-pcr.md` — PCA 与主成分回归（PCR）
+- `notes/07-evaluation-metrics.md` — 评价指标：RMSEP、R² 与偏差
 - `examples/pls_example.py` — 用 scikit-learn 在合成光谱数据上跑 PLS 回归
+- `examples/lda_example.py` — PLS 降维后接 LDA 的分类示例
+- `examples/preprocessing_example.py` — 原始光谱 vs SNV 的预处理对比
+- `CHANGELOG.md` — 维护记录
 
 ## 快速开始
 
 ```bash
 pip install numpy scikit-learn
 python examples/pls_example.py
+python examples/lda_example.py
+python examples/preprocessing_example.py
 ```
 
 ## 一句话速查
@@ -27,3 +34,7 @@ python examples/pls_example.py
 - PLS 主成分数别贪多，靠交叉验证选。
 - 光谱先做预处理（SNV / 一阶导 / MSC），再建模。
 - 样本数少于变量数时，LDA 直接用会崩，先降维。
+
+## 开源协议
+
+MIT License，见 `LICENSE`。
