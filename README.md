@@ -7,6 +7,8 @@
 
 ## 目录
 
+### 笔记
+
 - `notes/01-linear-models.md` — 线性模型：y = Xβ + ε
 - `notes/02-pls.md` — PLS 与 PLS-DA：为光谱而生的回归方法
 - `notes/03-lda.md` — LDA：线性判别分析
@@ -14,9 +16,19 @@
 - `notes/05-validation.md` — 模型验证：交叉验证与常见坑
 - `notes/06-pca-and-pcr.md` — PCA 与主成分回归（PCR）
 - `notes/07-evaluation-metrics.md` — 评价指标：RMSEP、R² 与偏差
-- `examples/pls_example.py` — 用 scikit-learn 在合成光谱数据上跑 PLS 回归
+- `notes/08-variable-selection.md` — 变量选择：VIP、CARS、SPA
+- `notes/09-outlier-detection.md` — 异常样本检测：杠杆值、Q 残差、Hotelling T²
+
+### 示例（均可直接运行）
+
+- `examples/pls_example.py` — 合成光谱上的 PLS 回归
 - `examples/lda_example.py` — PLS 降维后接 LDA 的分类示例
 - `examples/preprocessing_example.py` — 原始光谱 vs SNV 的预处理对比
+- `examples/outlier_detection.py` — PCA 的 T² 与 Q 残差异常检测
+- `examples/full_workflow.py` — 完整工作流：预处理 → 异常剔除 → 选主成分数 → 测试集报告
+
+### 其他
+
 - `CHANGELOG.md` — 维护记录
 
 ## 快速开始
@@ -26,6 +38,8 @@ pip install numpy scikit-learn
 python examples/pls_example.py
 python examples/lda_example.py
 python examples/preprocessing_example.py
+python examples/outlier_detection.py
+python examples/full_workflow.py
 ```
 
 ## 一句话速查
@@ -34,6 +48,7 @@ python examples/preprocessing_example.py
 - PLS 主成分数别贪多，靠交叉验证选。
 - 光谱先做预处理（SNV / 一阶导 / MSC），再建模。
 - 样本数少于变量数时，LDA 直接用会崩，先降维。
+- 异常检测看 T² 和 Q 两个量，剔除样本要有理由并记录。
 
 ## 开源协议
 
