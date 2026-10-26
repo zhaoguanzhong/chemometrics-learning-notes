@@ -19,6 +19,7 @@
 - `notes/08-variable-selection.md` — 变量选择：VIP、CARS、SPA
 - `notes/09-outlier-detection.md` — 异常样本检测：杠杆值、Q 残差、Hotelling T²
 - `notes/10-svr.md` — 支持向量回归（SVR）：ε-不敏感损失与 RBF 核
+- `notes/11-random-forest.md` — 随机森林与集成方法：Bagging、OOB、变量重要性与外推短板
 
 ### 示例（均可直接运行）
 
@@ -28,6 +29,7 @@
 - `examples/outlier_detection.py` — PCA 的 T² 与 Q 残差异常检测
 - `examples/full_workflow.py` — 完整工作流：预处理 → 异常剔除 → 选主成分数 → 测试集报告
 - `examples/svr_example.py` — RBF 核 SVR 回归（饱和响应光谱 + 网格选参与 PLS 对照）
+- `examples/random_forest_example.py` — 随机森林回归（饱和响应光谱 + PLS 对照 + 按波段汇总变量重要性）
 
 ### 其他
 
@@ -43,6 +45,7 @@ python examples/preprocessing_example.py
 python examples/outlier_detection.py
 python examples/full_workflow.py
 python examples/svr_example.py
+python examples/random_forest_example.py
 ```
 
 ## 一句话速查
@@ -53,6 +56,7 @@ python examples/svr_example.py
 - 样本数少于变量数时，LDA 直接用会崩，先降维。
 - 异常检测看 T² 和 Q 两个量，剔除样本要有理由并记录。
 - 关系接近线性时优先 PLS；明显弯曲时再考虑 SVR，且 SVR 必须标准化并用交叉验证选参。
+- 随机森林能拟合非线性与交互作用、不用标准化，但不能外推：校正集浓度范围必须覆盖未来样品。
 
 ## 开源协议
 
