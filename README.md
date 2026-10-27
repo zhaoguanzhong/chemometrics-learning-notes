@@ -20,6 +20,7 @@
 - `notes/09-outlier-detection.md` — 异常样本检测：杠杆值、Q 残差、Hotelling T²
 - `notes/10-svr.md` — 支持向量回归（SVR）：ε-不敏感损失与 RBF 核
 - `notes/11-random-forest.md` — 随机森林与集成方法：Bagging、OOB、变量重要性与外推短板
+- `notes/12-calibration-transfer.md` — 模型转移与校正维护：斜率/截距修正、DS、PDS 与定期复核
 
 ### 示例（均可直接运行）
 
@@ -30,6 +31,7 @@
 - `examples/full_workflow.py` — 完整工作流：预处理 → 异常剔除 → 选主成分数 → 测试集报告
 - `examples/svr_example.py` — RBF 核 SVR 回归（饱和响应光谱 + 网格选参与 PLS 对照）
 - `examples/random_forest_example.py` — 随机森林回归（饱和响应光谱 + PLS 对照 + 按波段汇总变量重要性）
+- `examples/calibration_transfer_example.py` — 模型转移示例（主、从仪器漂移模拟 + 斜率/截距修正 + 直接标准化 DS 对照）
 
 ### 其他
 
@@ -46,6 +48,7 @@ python examples/outlier_detection.py
 python examples/full_workflow.py
 python examples/svr_example.py
 python examples/random_forest_example.py
+python examples/calibration_transfer_example.py
 ```
 
 ## 一句话速查
@@ -57,6 +60,7 @@ python examples/random_forest_example.py
 - 异常检测看 T² 和 Q 两个量，剔除样本要有理由并记录。
 - 关系接近线性时优先 PLS；明显弯曲时再考虑 SVR，且 SVR 必须标准化并用交叉验证选参。
 - 随机森林能拟合非线性与交互作用、不用标准化，但不能外推：校正集浓度范围必须覆盖未来样品。
+- 模型换仪器要先做转移：先试斜率/截距修正，波长漂移明显时用 DS / PDS，效果必须在独立样品上验证。
 
 ## 开源协议
 
